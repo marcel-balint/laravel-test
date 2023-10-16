@@ -13,4 +13,25 @@ class MovieController extends Controller
 
         return view('movies.top-rated', compact('top_50_movies'));
     }
+
+    public function shawshank()
+    {
+        $movie_shawshank_redemption = DB::select("SELECT * FROM movies WHERE name LIKE '%The Shawshank Redemption%';");
+        return view('movies.detail', compact('movie_shawshank_redemption'));
+    }
+    public function search()
+    {
+        $input_char = $_GET['name'] ?? null;
+        $movies_by_input = DB::select("SELECT * FROM `movies` WHERE `name` LIKE ?;", ["%$input_char%"]);
+
+
+        return view('movies.search', compact('movies_by_input'));
+    }
+
+    public function movieDetail()
+    {
+        $movie_id = $_GET['id'] ?? null;
+        $movie_details = DB::select("SELECT * FROM `movies` WHERE `id` = ?", [$movie_id]);
+        return view('movies.movie-detail', compact('movie_details'));
+    }
 }

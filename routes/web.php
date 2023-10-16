@@ -23,3 +23,6 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/awards', [AwardController::class, 'index']);
 Route::get('/create', [CreateController::class, 'create']);
 Route::get('/top-rated-movies', [MovieController::class, 'topRated']);
+Route::get('/movies/shawshank-redemption', [MovieController::class, 'shawshank']);
+Route::get('/search', [MovieController::class, 'search']);
+Route::get('/movie-detail', [MovieController::class, 'movieDetail']);
