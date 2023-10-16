@@ -9,13 +9,15 @@
 </head>
 
 <body>
-    <h1>List of Movie Awards</h1>
-    <p>The data: <?= $data ?></p>
-    <ul>
-        <?php foreach ($awards as $award) : ?>
-            <li><?= $award ?></li>
-        <?php endforeach; ?>
-    </ul>
+    <a href="/">
+        < back to home</a>
+            <h1>List of Movie Awards</h1>
+            <p>The data: <?= $data ?></p>
+            <ul>
+                <?php foreach ($awards as $award) : ?>
+                    <li><?= $award ?></li>
+                <?php endforeach; ?>
+            </ul>
 </body>
 
 </html>

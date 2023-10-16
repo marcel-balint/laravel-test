@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SendDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/awards', [AwardController::class, 'index']);
+Route::get('/create', [CreateController::class, 'create']);
+Route::get('/top-rated-movies', [MovieController::class, 'topRated']);

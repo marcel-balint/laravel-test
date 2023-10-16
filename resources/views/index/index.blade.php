@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <h1>This is the index page............</h1>
-    <ul>
+    <a href="/awards">Awards</a>
+    <a href="/top-rated-movies">Top 50 movies</a>
+    <h1>Top 10 movies</h1>
+    <ol>
         <?php foreach ($movies as $movie) : ?>
-            <li><?= $movie ?></li>
+            <li><?= $movie->name ?> | rating: <strong><?= $movie->rating ?></strong> </li>
         <?php endforeach; ?>
-    </ul>
+    </ol>
 </body>
 
 </html>
