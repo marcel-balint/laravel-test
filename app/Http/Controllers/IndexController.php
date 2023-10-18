@@ -10,7 +10,7 @@ class IndexController extends Controller
     public function index()
 
     {
-        $movies = DB::select("SELECT * FROM `movies` ORDER BY `rating` DESC LIMIT 10;");
+        $movies = DB::select("SELECT * FROM `movies` ORDER BY `rating` DESC LIMIT 50;");
         return view('index.index', compact('movies'));
     }
 }

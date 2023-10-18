@@ -1,12 +1,22 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
+    public function index()
+    {
+        $movies = Movie::orderBy('rating')
+            ->where('votes_nr', '>=', 10000)
+            ->limit(20)
+            ->get();
+        return view('movies.index', compact('movies'));
+    }
     public function topRated()
     {
         $top_50_movies =  DB::select("SELECT `name`, `rating` FROM `movies` ORDER BY `rating` DESC LIMIT 50;");
@@ -29,6 +39,7 @@ class MovieController extends Controller
     }
 
     public function movieDetail()
+
     {
         $movie_id = $_GET['id'] ?? null;
         $movie_details = DB::select("SELECT * FROM `movies` WHERE `id` = ?", [$movie_id]);
