@@ -1,0 +1,13 @@
+.alert-success {
+    background-color: green;
+    color: #fff;
+    font-weight: bolder;
+    padding: 7px;
+}
+
+.alert-error{
+    background-color: red;
+    color: #fff;
+    font-weight: bolder;
+    padding: 7px;
+}

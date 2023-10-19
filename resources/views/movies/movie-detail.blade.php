@@ -16,6 +16,7 @@
                 <p>Rating: {{ $movie->rating }}</p>
                 <p>Votes: {{ $movie->votes_nr }}</p>
             <?php endforeach; ?>
+
 </body>
 
 </html>

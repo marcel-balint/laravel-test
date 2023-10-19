@@ -8,9 +8,7 @@
 </head>
 
 <body>
-    <a href="/awards">Awards</a>
-    <a href="/top-rated-movies">Top 50 movies</a>
-    <a href="/movies/shawshank-redemption">The Shawshank redemption</a>
+    @include('components.navigation')
     <div>Search: <form action="/search" method="get">
             <input type="text" name="name" placeholder="Search a movie">
             <input type="submit" value="Search">
@@ -21,7 +19,8 @@
         <?php foreach ($movies as $movie) : ?>
             <li>
                 <?= $movie->name ?> | rating: <strong><?= $movie->rating ?></strong>
-                <a href="/movie-detail?id=<?= $movie->id ?>">Details</a>
+                <a href="/movie-detail/<?= $movie->id ?>">Details</a> |
+                <a href="/movies/<?= $movie->id ?>/edit">Edit</a>
             </li>
         <?php endforeach; ?>
     </ol>
