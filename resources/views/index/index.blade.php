@@ -20,7 +20,14 @@
             <li>
                 <?= $movie->name ?> | rating: <strong><?= $movie->rating ?></strong>
                 <a href="/movie-detail/<?= $movie->id ?>">Details</a> |
-                <a href="/movies/<?= $movie->id ?>/edit">Edit</a>
+                <a href="/movies/<?= $movie->id ?>/edit">Edit</a> |
+
+                <form action="{{ route('movies.destroy', $movie->id) }}" method="post">
+                 @method('DELETE')
+                @csrf
+                 <button>Delete</button>
+                </form>
+
             </li>
         <?php endforeach; ?>
     </ol>

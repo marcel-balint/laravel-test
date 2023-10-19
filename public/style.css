@@ -5,9 +5,19 @@
     padding: 7px;
 }
 
-.alert-error{
+.alert-danger{
     background-color: red;
     color: #fff;
     font-weight: bolder;
     padding: 7px;
+}
+
+.alert-danger ul {
+    list-style-type: none;
+}
+
+.test {
+    outline: none;
+    border:2px solid red;
+  
 }

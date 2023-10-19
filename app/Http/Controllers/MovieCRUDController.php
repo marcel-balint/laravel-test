@@ -31,6 +31,9 @@ class MovieCRUDController extends Controller
      */
     public function store(Request $request)
     {
+        // Validation
+        $this->validateInput($request);
+
         // Data from the form 
         $movie = new Movie();
         $movie->name = $request->input('name');
@@ -66,7 +69,9 @@ class MovieCRUDController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validation
+        $this->validateInput($request);
+
         $movie = Movie::findOrFail($id); // Find the movie first to update it
         $movie->name = $request->input('name');
         $movie->year = $request->input('year');
@@ -80,6 +85,26 @@ class MovieCRUDController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Delete a movie
+        $movie = Movie::findOrFail($id);
+        $movie->delete();
+        session()->flash('success_message', 'Successfully Deleted!');
+
+        return redirect('/');
+    }
+    private function validateInput($request)
+    {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|min:2',
+                'year' => 'required|numeric',
+
+            ],
+            [
+                'name.required' => 'Please be so kind and fill-in the name of the movie :)'
+
+            ]
+        );
     }
 }

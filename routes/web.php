@@ -47,3 +47,5 @@ Route::post('/movies', [MovieCRUDController::class, 'store'])->name('movies.stor
 Route::get('/movies/{movie}/edit', [MovieCRUDController::class, 'edit'])->whereNumber('movie')->name('movies.edit');
 // Update
 Route::put('/movies/{movie}', [MovieCRUDController::class, 'update'])->whereNumber('movie')->name('movies.update');
+// Delete
+Route::delete('/movies/{movie}', [MovieCRUDController::class, 'destroy'])->name('movies.destroy');

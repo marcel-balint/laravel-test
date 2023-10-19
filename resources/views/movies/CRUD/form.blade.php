@@ -22,12 +22,13 @@
         @csrf
     <label for="name">Name</label>
     <br>
-    <input type="text" name="name" value="{{ $movie->name }}">
+    <input type="text" class="{{ $errors->first('name') ? 'test' : '' }}" name="name" value="{{ old('name', $movie->name) }}">
+    <p style="display: none"></p>
     <br>
 
     <label for="year">Year</label>
     <br>
-    <input type="text" name="year" value="{{ $movie->year }}">
+    <input type="text" class="{{ $errors->first('year') ? 'test' : '' }}"  name="year" value="{{ old('year', $movie->year) }}">
     <br>
     <br>
     <button>Save</button>
